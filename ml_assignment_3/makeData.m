@@ -8,13 +8,15 @@ data_size = size(meas, 1);
 
 % Init labels
 labels = ones(data_size, 1);
-    
+
 % Set data to iris data
-data = [meas, labels];
+%data = [meas, labels]; % 4-d
+data = [meas(:,1:2), labels]; % 2-d
 
 % Set virginica and versicolor to be -1 and leave setosa to be 1
 for i = 51:150
-    data(i,5) = -1;
+    %data(i,5) = -1; % 4-d
+    data(i,3) = -1; % 2-d
 end
 
 % set train/test ratio
@@ -37,8 +39,8 @@ testing_data_set = data(seq((data_size*subRatio)+1:end),:);
 % Col 4: Petal Width
 % Col 5: Label (1: Setosa, -1: not Setosa)
 
-csvwrite('iris_data.csv',data)
-csvwrite('iris_training_data_set.csv',training_data_set)
-csvwrite('iris_testing_data_set.csv',testing_data_set)
+csvwrite('./iris_data/iris_data.csv',data)
+csvwrite('./iris_data/iris_training_data_set.csv',training_data_set)
+csvwrite('./iris_data/iris_testing_data_set.csv',testing_data_set)
 
 

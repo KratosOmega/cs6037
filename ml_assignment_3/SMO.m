@@ -12,18 +12,20 @@ function [w, b, a] = SMO(data, eps, tol, C, training)
 %  a: a vector of lagrange multipliers
 
 % Init data
-X = data(:, 1:4);
-Y = data(:, 5);
-X_train = training(:, 1:4);
+X=data(:,1:end-1);
+Y=data(:,end);
+X_train = training(:,1:end-1);
 training_size = size(X_train, 1);
 X = X(1:training_size, :);
 Y = Y(1:training_size);
+degree = size(X(1,:));
+degree = degree(2);
 
 % Init error
 Error=zeros(1, training_size);
 
 % Init weight vector
-w = zeros(1, 4); 
+w = zeros(1, degree); 
 
 % Let K denote a kernel on SXS. K_(ij)=K(x_i,x_j)=x_i*x_j
 K = zeros(size(X,1));

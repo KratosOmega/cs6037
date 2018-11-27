@@ -41,14 +41,9 @@
 % 
 % syms x1 x2
 % 
-% fn=vpa((w(1)*x1+b)/w(2),6);
-% fn1=vpa((w(1)*x1+b-1)/w(2),6);
-% fn2=vpa((w(1)*x1+b+1)/w(2),6);
-% 
 % % fn=vpa((-b-w(1)*x1)/w(2),6);
 % % fn1=vpa((-1-b-w(1)*x1)/w(2),6);
 % % fn2=vpa((1-b-w(1)*x1)/w(2),6);
-% 
 % 
 % fplot(fn,'Linewidth',2);
 % fplot(fn1,'Linewidth',1);
@@ -126,11 +121,7 @@
 % scatter(x(y==-1,1),x(y==-1,2),'r')
 % 
 % syms x1 x2
-% 
-% % fn=vpa((w(1)*x1+b)/w(2),6);
-% % fn1=vpa((w(1)*x1+b-1)/w(2),6);
-% % fn2=vpa((w(1)*x1+b+1)/w(2),6);
-% 
+%
 % fn=vpa((-b-w(1)*x1)/w(2),6);
 % fn1=vpa((-1-b-w(1)*x1)/w(2),6);
 % fn2=vpa((1-b-w(1)*x1)/w(2),6);

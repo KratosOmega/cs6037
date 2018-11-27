@@ -1,5 +1,4 @@
 function [out, a, Error, b, w] = takeStep(i1, i2, a, Y, b, eps, Error, C, K, E2, tol, w, X_train)
-
     out = 0;
 
     if(i1 == i2)

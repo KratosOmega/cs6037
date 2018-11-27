@@ -1,7 +1,11 @@
-function [training_data_set, testing_data_set, data] = d2Dataset()
+function [training_data_set, testing_data_set, data] = makeD2Data()
 
+% simulate 2 center point which 
+% represent 2 classes
 initial_class1 = [1, 1];
 initial_class2 = [2, 2];
+
+% set data size for each class
 n = 100;
 
 class1 = zeros(n, 2);
@@ -16,6 +20,7 @@ class1(:,2) = initial_class1(2);
 class2(:,1) = initial_class2(1);
 class2(:,2) = initial_class2(2);
 
+% set min & max for variance
 min = 0.5;
 max = 1.5;
 
@@ -24,6 +29,7 @@ class1_d2_variance=min+rand(1,n)*(max-min);
 class2_d1_variance=min+rand(1,n)*(max-min);
 class2_d2_variance=min+rand(1,n)*(max-min);
 
+% apply variance to each data point
 class1(:,1) = class1(:,1) + class1_d1_variance';
 class1(:,2) = class1(:,2) + class1_d2_variance';
 class2(:,1) = class2(:,1) + class2_d1_variance';

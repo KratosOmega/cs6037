@@ -1,4 +1,4 @@
-function [cm acc fm ] = summary( y_actual,y_predicted )
+function [cm acc fm] = summary(y_actual, y_predicted )
 
 tp=0;
 tn=0;

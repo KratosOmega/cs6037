@@ -50,13 +50,13 @@ function [out, a, Error, b, w] = takeStep(i1, i2, a, Y, b, eps, Error, C, K, E2,
         end
     else
         Lobj = -s*L+L-0.5*k11*(gamma-s*L)^2-.5*k22*L^2-s*k12*(gamma-s*L)*L-Y(i1)...
-            *(gamma-s*L)*(sum(Y' .* a .* K(i1, :)) - b+b-Y(i1)*alph1*k11-Y(i2)*alph2*K(i2,i1))...
-            -Y(2)*L*(sum(Y' .* a .* K(i2, :)) - b+b-Y(i1)*alph1*k12-Y(i2)*alph2*k22);
+            *(gamma-s*L)*(sum(Y'.*a.*K(i1,:)) - b+b-Y(i1)*alph1*k11-Y(i2)*alph2*K(i2,i1))...
+            -Y(2)*L*(sum(Y'.*a.*K(i2,:)) - b+b-Y(i1)*alph1*k12-Y(i2)*alph2*k22);
 
         
         Hobj = -s*H+H-0.5*k11*(gamma-s*H)^2-.5*k22*H^2-s*k12*(gamma-s*H)*H-Y(i1)...
-            *(gamma-s*H)*(sum(Y' .* a .* K(i1, :)) - b+b-Y(i1)*alph1*k11-Y(i2)*alph2*K(i2,i1))...
-            -Y(2)*H*(sum(Y' .* a .* K(i1, :)) - b+b-Y(i1)*alph1*k12-Y(i2)*alph2*K(i2,i1));
+            *(gamma-s*H)*(sum(Y'.*a.*K(i1,:)) - b+b-Y(i1)*alph1*k11-Y(i2)*alph2*K(i2,i1))...
+            -Y(2)*H*(sum(Y'.*a.*K(i1,:)) - b+b-Y(i1)*alph1*k12-Y(i2)*alph2*K(i2,i1));
         
         if (Lobj < Hobj - eps)
             a2 = L;
@@ -91,7 +91,6 @@ function [out, a, Error, b, w] = takeStep(i1, i2, a, Y, b, eps, Error, C, K, E2,
    a(i1)=a1;
    a(i2)=a2;
    
-   w
    w = w + Y(i1) * (a1-alph1) .* X_train(i1,:) + Y(i2) * (a2-alph2) .* X_train(i2,:);
    
    out=1;
